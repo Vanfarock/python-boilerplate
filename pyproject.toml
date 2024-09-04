@@ -1,16 +1,26 @@
 [tool.poetry]
-name = "src"
+name = "<project name>"
 version = "0.1.0"
-description = ""
+description = "<project description>"
 authors = ["Your Name <you@example.com>"]
 readme = "README.md"
 
-[tool.poetry.scripts]
-app = "src.main:main"
+[tool.poe.tasks]
+app = "python src/main.py"
+format = "ruff format"
+lint = "ruff check --fix"
+type_check = "mypy src/"
+style = ["lint", "format", "type_check"]
 
 [tool.poetry.dependencies]
 python = "^3.12"
 
+[tool.poetry.group.dev.dependencies]
+poethepoet = "^0.28.0"
+
+[tool.poetry.group.lint.dependencies]
+ruff = "^0.6.3"
+mypy = "^1.11.2"
 
 [build-system]
 requires = ["poetry-core"]
