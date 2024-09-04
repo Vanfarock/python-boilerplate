@@ -44,4 +44,6 @@ jobs:
 
       - name: Run type checking
         run: poetry run poe type_check
-        
+      
+      - name: Run tests
+        run: poetry run poe test

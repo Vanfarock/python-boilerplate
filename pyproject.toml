@@ -10,18 +10,18 @@ app = "python src/main.py"
 format = "ruff format"
 lint_and_fix = "ruff_check --fix"
 lint = "ruff check"
-type_check = "mypy src/"
+type_check = "mypy src/ --disallow-untyped-defs --disallow-incomplete-defs"
 style = ["lint_and_fix", "format", "type_check"]
+test = "pytest tests/"
 
 [tool.poetry.dependencies]
 python = "^3.12"
 
 [tool.poetry.group.dev.dependencies]
 poethepoet = "^0.28.0"
-
-[tool.poetry.group.lint.dependencies]
 ruff = "^0.6.3"
 mypy = "^1.11.2"
+pytest = "^8.3.2"
 
 [build-system]
 requires = ["poetry-core"]

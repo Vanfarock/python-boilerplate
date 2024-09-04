@@ -1,4 +1,7 @@
-def main():
+def add(x: int, y: int) -> int:
+    return x + y
+
+def main() -> None:
     print("Hello Backend")
 
 
