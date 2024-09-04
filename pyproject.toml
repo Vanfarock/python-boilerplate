@@ -8,9 +8,10 @@ readme = "README.md"
 [tool.poe.tasks]
 app = "python src/main.py"
 format = "ruff format"
-lint = "ruff check --fix"
+lint_and_fix = "ruff_check --fix"
+lint = "ruff check"
 type_check = "mypy src/"
-style = ["lint", "format", "type_check"]
+style = ["lint_and_fix", "format", "type_check"]
 
 [tool.poetry.dependencies]
 python = "^3.12"
