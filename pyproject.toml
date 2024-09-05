@@ -13,6 +13,7 @@ lint = "poetry run ruff check"
 type_check = "poetry run mypy backend/ --disallow-untyped-defs --disallow-incomplete-defs"
 style = ["lint_and_fix", "format", "type_check"]
 test = "poetry run pytest tests/"
+format_terraform = "terraform -chdir=infra/terraform fmt -recursive"
 
 [tool.poetry.dependencies]
 python = "^3.12"

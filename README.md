@@ -12,9 +12,11 @@ Python Boilerplate with CI/CD, Infrastructure as Code (IaC) and observability se
 To use this Python Boilerplate there are some requirements:
 * [Python 3.12+](https://www.python.org/downloads/)
 * [Poetry](https://python-poetry.org/docs/)
+* [Terraform 1.9+](https://developer.hashicorp.com/terraform/install)
+* [Google Cloud CLI](https://cloud.google.com/sdk/docs/install)
 
 ## Initial Customization
-This Boilerplate already has CI/CD, IaC and observability working, but there some configurations that you might be interested in customizing beforehand
+This Boilerplate already has CI/CD, IaC and observability working, but there some configurations that you might be interested in changing beforehand
 
 ### In pyproject.toml
 * Add description
@@ -26,6 +28,17 @@ To start, we'll install all the project dependencies through Poetry:
 ```sh
 poetry install
 ```
+
+After that you can run the application locally by running:
+```sh
+poetry run poe app
+```
+
+To deploy the application to GCP:
+* Create a GCP Project
+* Enable Cloud Run Admin API
+
+After that whenever there is a commit in `dev`, `staging` or `main` branch the Deployment workflow will run automatically.
 
 ## Format, Lint and Type Checking
 We are using `ruff` as linter and formatter, and `mypy` as static type checker.

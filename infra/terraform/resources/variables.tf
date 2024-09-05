@@ -1,0 +1,1 @@
+variable "deletion_protection" {}
