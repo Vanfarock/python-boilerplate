@@ -12,7 +12,7 @@ lint_and_fix = "ruff_check --fix"
 lint = "ruff check"
 type_check = "mypy src/ --disallow-untyped-defs --disallow-incomplete-defs"
 style = ["lint_and_fix", "format", "type_check"]
-test = "pytest tests/"
+test = "pytest"
 
 [tool.poetry.dependencies]
 python = "^3.12"
@@ -22,9 +22,6 @@ poethepoet = "^0.28.0"
 ruff = "^0.6.3"
 mypy = "^1.11.2"
 pytest = "^8.3.2"
-
-[tool.pytest.ini_options]
-pythonpath = ["src"]
 
 [build-system]
 requires = ["poetry-core"]
