@@ -1,6 +1,13 @@
 # Python Boilerplate
 Python Boilerplate with CI/CD, Infrastructure as Code (IaC) and observability set up.
 
+## Table of Contents
+* [Requirements](#requirements)
+* [Initial Customization](#initial-customization)
+* [Getting Started](#getting-started)
+* [Format, Lint and Type Checking](#format-lint-and-type-checking)
+* [Custom Commands](#custom-commands)
+
 ## Requirements
 To use this Python Boilerplate there are some requirements:
 * [Python 3.12+](https://www.python.org/downloads/)
@@ -10,7 +17,6 @@ To use this Python Boilerplate there are some requirements:
 This Boilerplate already has CI/CD, IaC and observability working, but there some configurations that you might be interested in customizing beforehand
 
 ### In pyproject.toml
-* Add name
 * Add description
 * Add authors
 

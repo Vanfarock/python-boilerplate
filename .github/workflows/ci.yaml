@@ -1,0 +1,57 @@
+name: CI
+
+on:
+  push:
+    paths:
+      - backend/**
+      - tests/**
+    branches: [main]
+  pull_request:
+    paths:
+      - backend/**
+      - tests/**
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.12"
+
+      - name: Cache Poetry dependencies
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.cache/pypoetry
+            ~/.cache/pip
+          key: ${{ runner.os }}-poetry-${{ hashFiles('**/pyproject.toml') }}
+          restore-keys: |
+            ${{ runner.os }}-poetry-${{ hashFiles('**/pyproject.toml') }}
+
+      - name: Install Poetry
+        run: curl -sSL https://install.python-poetry.org | python3 -
+
+      - name: Install dependencies
+        run: poetry install --all-extras
+
+      - name: Run format
+        run: poetry run poe format
+
+      - name: Run lint
+        run: poetry run poe lint
+
+      - name: Run type checking
+        run: poetry run poe type_check
+      
+      - name: Run tests
+        env:
+          PYTHONPATH: ./src
+        run: poetry run poe test

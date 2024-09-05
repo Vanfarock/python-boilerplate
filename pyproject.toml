@@ -1,26 +1,30 @@
 [tool.poetry]
-name = "<project name>"
+name = "backend"
 version = "0.1.0"
 description = "<project description>"
 authors = ["Your Name <you@example.com>"]
 readme = "README.md"
 
 [tool.poe.tasks]
-app = "python src/main.py"
-format = "ruff format"
-lint = "ruff check --fix"
-type_check = "mypy src/"
-style = ["lint", "format", "type_check"]
+app = "poetry run python backend/main.py"
+format = "poetry run ruff format"
+lint_and_fix = "poetry run ruff_check --fix"
+lint = "poetry run ruff check"
+type_check = "poetry run mypy backend/ --disallow-untyped-defs --disallow-incomplete-defs"
+style = ["lint_and_fix", "format", "type_check"]
+test = "poetry run pytest tests/"
 
 [tool.poetry.dependencies]
 python = "^3.12"
 
 [tool.poetry.group.dev.dependencies]
 poethepoet = "^0.28.0"
-
-[tool.poetry.group.lint.dependencies]
 ruff = "^0.6.3"
 mypy = "^1.11.2"
+pytest = "^8.3.2"
+
+[tool.pytest.ini_options]
+pythonpath = ["backend"]
 
 [build-system]
 requires = ["poetry-core"]
