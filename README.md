@@ -17,7 +17,6 @@ To use this Python Boilerplate there are some requirements:
 This Boilerplate already has CI/CD, IaC and observability working, but there some configurations that you might be interested in customizing beforehand
 
 ### In pyproject.toml
-* Add name
 * Add description
 * Add authors
 
