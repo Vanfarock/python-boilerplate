@@ -2,8 +2,14 @@ name: CI
 
 on:
   push:
+    paths:
+      - backend/**
+      - tests/**
     branches: [main]
   pull_request:
+    paths:
+      - backend/**
+      - tests/**
     branches: [main]
   workflow_dispatch:
 
